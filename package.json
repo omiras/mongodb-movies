@@ -1,0 +1,28 @@
+{
+  "name": "mongodb-movies",
+  "version": "1.0.0",
+  "description": "Debemos crear una interfaz gráfica para acceder a la base de datos _sample_mflix_ de MongoDB, concretamente a la colección _movies_.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omiras/mongodb-movies.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omiras/mongodb-movies/issues"
+  },
+  "homepage": "https://github.com/omiras/mongodb-movies#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "morgan": "^1.10.0"
+  }
+}
