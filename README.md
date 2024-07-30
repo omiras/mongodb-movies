@@ -13,13 +13,15 @@ Debemos crear una interfaz gráfica para acceder a la base de datos _sample_mfli
 
 `GET /`
 
-Crea una nueva vista de la aplicación. Cuando el acceda al directorio raíz de nuestro servidor, debemos renderizar las 20 primeras películas de la base de datos
+Crea una nueva vista de la aplicación. Cuando el acceda al directorio raíz de nuestro servidor, debemos renderizar las 10 primeras películas de la base de datos
 
 Para cada película vamos a mostrar:
 
 1. El título
 2. Una imagen 
 3. Fecha de lanzamiento
+
+Por defecto vamos a ordenar las películas por fecha de lanzamiento en orden decreciente (las más recientes primero.)
 
 ## Iteración 2
 
@@ -29,6 +31,14 @@ Modifica esta misma vista para añadir en la parte superior un formulario de bú
 2. Buscar por palabra clave en la descripción
 3. Buscar por tipo de filmación (campo _type_). Puede ser "movie" o "series"
 4. Buscar por año de lanzamiento. Debemos poder buscar entre dos años. Por ejemplo: todas las películas entre el 1990 y el 2000.
+
+Muestra siempre 10 películas como máximo.
+
+## Iteración 2.5
+
+Añade un control de fomulario adecuado para ordenar las películas de manera decreciente (por defecto) o de manera creciente por fecha de lanzamiento.
+
+Al cambiar el criterio de ordenación se debe actualizar el orden de las películas. Esto es algo que se puede hacer des de el cliente o des de el servidor. Se recomienda hacerlo des de el servidor para practicar las consultas a MongoDB.
 
 ## Iteración 3
 
