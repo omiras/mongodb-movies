@@ -2,24 +2,24 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-    <style>
-        .movies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
+    <%- include('./partials/head') %>
+        <title>Movies</title>
+        <style>
+            .movies {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
 
-        .movies img {
-            width: 300px;
-        }
-    </style>
+            .movies img {
+                width: 300px;
+            }
+        </style>
 </head>
 
 <body>
+    <header class="container"><%- include('./partials/navbar') %></header>
+
     <main class="container">
         <h1>Movies Database</h1>
         <section class="movies">
