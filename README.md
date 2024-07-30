@@ -1,0 +1,62 @@
+# MongoDB Movies
+
+Debemos crear una interfaz gráfica para acceder a la base de datos _sample_mflix_ de MongoDB, concretamente a la colección _movies_.
+
+## Iteración 0
+
+1. Inicializa esta carpeta para que sea gobernada por NPM
+2. Instala los módulos de terceros _express_, _morgan_, _mongodb_ y _ejs_
+3. Crea la estructura necesaria para levantar el servidor de Express.
+4. Conectate a tu instancia de MongoDB y deja abierta la conexión.
+
+## Iteración 1
+
+`GET /`
+
+Crea una nueva vista de la aplicación. Cuando el acceda al directorio raíz de nuestro servidor, debemos renderizar las 20 primeras películas de la base de datos
+
+Para cada película vamos a mostrar:
+
+1. El título
+2. Una imagen 
+3. Fecha de lanzamiento
+
+## Iteración 2
+
+Modifica esta misma vista para añadir en la parte superior un formulario de búsqueda. Debemos poder buscar por los siguientes conceptos clave:
+
+1. Buscar por palabra clave en el título
+2. Buscar por palabra clave en la descripción
+3. Buscar por tipo de filmación (campo _type_). Puede ser "movie" o "series"
+4. Buscar por año de lanzamiento. Debemos poder buscar entre dos años. Por ejemplo: todas las películas entre el 1990 y el 2000.
+
+## Iteración 3
+
+Crea un nuevo endpoint:
+
+`GET /movies/add-form`
+
+Esta vista renderizará un formulario para añadir una nueva película a la base de datos. Inicialmente tan solo hay que añadir los campos de la Iteración 2. Puede ser una buena idea añadir también una URL a una imagen para el campo _poster_.
+
+Luego, crea un nuevo endpoint:
+
+`POST /movies/add-form`
+
+Este endpoint debe:
+
+1. Recibir los datos del formulario de añadir películas
+2. Crea un nuevo documento en la base de datos de MongoDB e insertarlo en la colección _movies_
+3. Podemos mostrar un mensaje de "película insertada con éxito" y/o redirigir al usuario a la página principal
+
+## Iteración 4
+
+Sigue implementando los demás campo tanto para la búsqueda como para la creación de películas.
+
+Algunos campos pueden ser difíciles de implementar, sobretodo para la creación del documento (ejemplo: _awards_). Así que se sugiere empezar por campos sencillos (ejemplo: _runtime_)
+
+Hay algunos campos como _rated_ o _languages_ que pueden ser _select_ con unas cuantas opciones posibles. O también puedes hacerlo más interesante y buscar _cómo obtener todos los valores posibles para un campo de un documento de MongoDB_, y llenar el _select_ de forma dinámica con todas las opciones posibles.
+
+
+
+
+
