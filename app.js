@@ -44,11 +44,12 @@ app.get('/', async (req, res) => {
     // Si el usuario quiere buscar por título, le añado esta información a la query
     // Si el campo title está informado (tiene valor), entonces tengo que añadir este filtro a la query -> query = { title: title}
     if (title) {
-        query = {
-            ...query, // los mismos campos que tenías hasta ahora
-            title : new RegExp(title)
-        }
+        query.title = new RegExp(title, 'i'); // 'i' para que sea insensible a mayúsculas
     }
+
+
+    // Si el campo year esta informado
+    // if (year) ...
 
     console.log("aspecto de la query hasta el momento: ", query);
 
