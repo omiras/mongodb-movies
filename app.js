@@ -33,9 +33,10 @@ app.get('/', async (req, res) => {
     const movies = database.collection('movies');
 
     // Iteración 2:
-    // 2.1 - Tenemos que obtener la querystring. De momento solamente el parámetro 'title'
-    const { title } = req.query;
-    console.log("🚀 ~ file: app.js:38 ~ app.get ~ title:", title)
+    // 2.1 - Tenemos que obtener la querystring. De momento solamente el parámetro 'keyword'
+    console.log("querystring: ", req.query);
+    const { keyword } = req.query;
+    console.log("🚀 ~ file: app.js:38 ~ app.get ~ keyword:", keyword)
     // 2.2 - Si la query string me trae valor en el parámetro title, entonces tengo que actualizar el objeto query con este filtro
 
     // definir un objeto que va a contener la query a la base de datos
@@ -43,9 +44,13 @@ app.get('/', async (req, res) => {
 
     // Si el usuario quiere buscar por título, le añado esta información a la query
     // Si el campo title está informado (tiene valor), entonces tengo que añadir este filtro a la query -> query = { title: title}
-    if (title) {
-        query.title = new RegExp(title, 'i'); // 'i' para que sea insensible a mayúsculas
+
+    // TODO 1: Ahora la palabra clave también tenemos que buscarla en el campo 'plot' y en el campo 'fullPlot' de los documentos
+    if (keyword) {
+        query.title = new RegExp(keyword, 'i'); // 'i' para que sea insensible a mayúsculas
     }
+
+    // TODO 2: Si el parámetro 'type' está informado (tiene valor), entonces tenemos que crear una nueva propiedad en la query (query.type) y asignarle el valor adecuado para buscar las películas también por tipo de filmación
 
 
     // Si el campo year esta informado
