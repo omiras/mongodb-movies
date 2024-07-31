@@ -35,7 +35,7 @@ app.get('/', async (req, res) => {
     // Iteración 2:
     // 2.1 - Tenemos que obtener la querystring. De momento solamente el parámetro 'keyword'
     console.log("querystring: ", req.query);
-    const { keyword } = req.query;
+    const { keyword, type, fromYear } = req.query;
     console.log("🚀 ~ file: app.js:38 ~ app.get ~ keyword:", keyword)
     // 2.2 - Si la query string me trae valor en el parámetro title, entonces tengo que actualizar el objeto query con este filtro
 
@@ -51,10 +51,17 @@ app.get('/', async (req, res) => {
     }
 
     // TODO 2: Si el parámetro 'type' está informado (tiene valor), entonces tenemos que crear una nueva propiedad en la query (query.type) y asignarle el valor adecuado para buscar las películas también por tipo de filmación
+    if (type) {
+        query.type = type;
+    }
 
+    // TODO 3: Si el parámetor fromYear está informado....
+    if (fromYear) {
+        // TODO: añadir criterio de búsqueda para que filtre a partir de las películas filmadas en el año formYear
+        query.year = { $gte: Number(fromYear) }
+    }
 
-    // Si el campo year esta informado
-    // if (year) ...
+    // TODO 4: Si el parámetro toYear está informado....
 
     console.log("aspecto de la query hasta el momento: ", query);
 
