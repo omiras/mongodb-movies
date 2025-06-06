@@ -78,4 +78,11 @@ Hay algunos campos como _rated_ o _languages_ que pueden ser _select_ con unas c
 
 Implementa [paginacion](https://www.youtube.com/shorts/5Nt5WIpstLE) para mostrar todos los resultados que devuelve la consulta a la base de datos a MongoDB. 
 
+### Bonus Vista Detallada
+
+Implementa un endpoint 
+
+`GET /movies/:id`
+
+Que recibe el identificador de una película de la base de datos y carga una vista detallada con todos los campos relevantes del a misma.
 
