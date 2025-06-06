@@ -29,12 +29,17 @@ Por defecto vamos a ordenar las películas por fecha de lanzamiento en orden dec
 
 Modifica esta misma vista para añadir en la parte superior un formulario de búsqueda. Debemos poder buscar por los siguientes conceptos clave:
 
-1. Buscar por palabra clave en el título
-2. Buscar por palabra clave en la descripción
-3. Buscar por tipo de filmación (campo _type_). Puede ser "movie" o "series"
-4. Buscar por año de lanzamiento. Debemos poder buscar entre dos años. Por ejemplo: todas las películas entre el 1990 y el 2000.
+1. Filtrar películas por género
+2. Buscar por palabra clave en el título
+3. Buscar por palabra clave en la descripción
+4. Buscar por tipo de filmación (campo _type_). Puede ser "movie" o "series"
+5. Buscar por año de lanzamiento. Debemos poder buscar entre dos años. Por ejemplo: todas las películas entre el 1990 y el 2000.
+6. Añade tu propio filtro. En general se podría realizar una bùsqueda por casi cualquier campo de los documentos que confirman la colecciones _movies_ de la base de datos _sample_mflix_
 
-Muestra siempre 10 películas como máximo.
+
+Muestra siempre 10 películas como máximo. 
+
+
 
 ## Iteración 2.5
 
@@ -48,7 +53,7 @@ Crea un nuevo endpoint:
 
 `GET /movies/add-form`
 
-Esta vista renderizará un formulario para añadir una nueva película a la base de datos. Inicialmente tan solo hay que añadir los campos de la Iteración 2. Puede ser una buena idea añadir también una URL a una imagen para el campo _poster_.
+Esta vista renderizará un formulario para añadir una nueva película a la base de datos. Inicialmente tan solo hay que añadir los campos de la **Iteración 2**. Puede ser una buena idea añadir también una URL a una imagen para el campo _poster_.
 
 Luego, crea un nuevo endpoint:
 
@@ -69,6 +74,8 @@ Algunos campos pueden ser difíciles de implementar, sobretodo para la creación
 Hay algunos campos como _rated_ o _languages_ que pueden ser _select_ con unas cuantas opciones posibles. O también puedes hacerlo más interesante y buscar _cómo obtener todos los valores posibles para un campo de un documento de MongoDB_, y llenar el _select_ de forma dinámica con todas las opciones posibles.
 
 
+### Bonus Iteración 2 
 
+Implementa [paginacion](https://www.youtube.com/shorts/5Nt5WIpstLE) para mostrar todos los resultados que devuelve la consulta a la base de datos a MongoDB. 
 
 
