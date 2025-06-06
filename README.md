@@ -73,11 +73,6 @@ Algunos campos pueden ser difíciles de implementar, sobretodo para la creación
 
 Hay algunos campos como _rated_ o _languages_ que pueden ser _select_ con unas cuantas opciones posibles. O también puedes hacerlo más interesante y buscar _cómo obtener todos los valores posibles para un campo de un documento de MongoDB_, y llenar el _select_ de forma dinámica con todas las opciones posibles.
 
-
-### Bonus Iteración 2 
-
-Implementa [paginacion](https://www.youtube.com/shorts/5Nt5WIpstLE) para mostrar todos los resultados que devuelve la consulta a la base de datos a MongoDB. 
-
 ### Bonus Vista Detallada
 
 Implementa un endpoint 
@@ -85,4 +80,9 @@ Implementa un endpoint
 `GET /movies/:id`
 
 Que recibe el identificador de una película de la base de datos y carga una vista detallada con todos los campos relevantes del a misma.
+
+### Bonus Iteración 2 
+
+Implementa [paginacion](https://www.youtube.com/shorts/5Nt5WIpstLE) para mostrar todos los resultados que devuelve la consulta a la base de datos a MongoDB. 
+
 
