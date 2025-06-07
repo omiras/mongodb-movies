@@ -80,6 +80,30 @@ app.get('/', async (req, res) => {
     });
 });
 
+// Add recommendation page route
+app.get('/recommendation', (req, res) => {
+    res.render('recommendation', {
+        recommendation: undefined
+    });
+});
+
+// Add recommendation by genre route
+app.get('/recommendation/:genre', async (req, res) => {
+    const { genre } = req.params;
+    const movies = database.collection('movies');
+    let query = {};
+    if (genre !== 'any') {
+        query.genres = genre.charAt(0).toUpperCase() + genre.slice(1).toLowerCase();
+    }
+    // Recupera todas las películas que coinciden con el género (o todas si es any)
+    const all = await movies.find(query).toArray();
+    let recommendation = null;
+    if (all.length > 0) {
+        recommendation = all[Math.floor(Math.random() * all.length)];
+    }
+    res.render('recommendation', { recommendation });
+});
+
 app.listen(process.env.PORT || 3000, async () => {
     console.log('Server up.');
 
