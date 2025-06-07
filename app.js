@@ -91,16 +91,16 @@ app.get('/recommendation', (req, res) => {
 app.get('/recommendation/:genre', async (req, res) => {
     const { genre } = req.params;
     const movies = database.collection('movies');
-    let query = {};
+    let match = {};
     if (genre !== 'any') {
-        query.genres = genre.charAt(0).toUpperCase() + genre.slice(1).toLowerCase();
+        match.genres = { $regex: new RegExp(genre, 'i') };
     }
-    // Recupera todas las películas que coinciden con el género (o todas si es any)
-    const all = await movies.find(query).toArray();
-    let recommendation = null;
-    if (all.length > 0) {
-        recommendation = all[Math.floor(Math.random() * all.length)];
-    }
+    // Usar pipeline para obtener una película aleatoria
+    const pipeline = [
+        { $match: match },
+        { $sample: { size: 1 } }
+    ];
+    const [recommendation] = await movies.aggregate(pipeline).toArray();
     res.render('recommendation', { recommendation });
 });
 
