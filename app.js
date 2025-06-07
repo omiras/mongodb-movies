@@ -29,6 +29,22 @@ app.get('/movies/add-form', (req, res) => {
     res.render('add-form');
 })
 
+app.get('/recommendation/:genre', async (req, res) => {
+    const { genre } = req.params;
+    const movies = database.collection('movies');
+    let match = {};
+    if (genre !== 'any') {
+        match.genres = { $regex: new RegExp(genre, 'i') };
+    }
+    // Usar pipeline para obtener una película aleatoria
+    const pipeline = [
+        { $match: match },
+        { $sample: { size: 1 } }
+    ];
+    const [recommendation] = await movies.aggregate(pipeline).toArray();
+    res.render('recommendation', { recommendation });
+});
+
 app.listen(process.env.PORT || 3000, async () => {
     console.log(`Server is up.`);
     try {
