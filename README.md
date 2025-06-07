@@ -81,8 +81,14 @@ Implementa un endpoint
 
 Que recibe el identificador de una película de la base de datos y carga una vista detallada con todos los campos relevantes del a misma.
 
+### Bonus Página Recomendacion
+
+Implementa una página de recomendaciones como se puede ver en la DEMO donde al hacer clic en uno de los iconos, obtengas una película aleatória del género solicitado.
+
 ### Bonus Iteración 2 
 
 Implementa [paginacion](https://www.youtube.com/shorts/5Nt5WIpstLE) para mostrar todos los resultados que devuelve la consulta a la base de datos a MongoDB. 
+
+ 
 
 
