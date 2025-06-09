@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+
+<body>
+    <h1>Movies Database</h1>
+    <!-- Usar sintaxis EJS para renderizar todas las películas que pasamos a la vista-->
+    <section class="container">
+        <% movies.forEach(function(m) { %>
+        <article>
+            <header><%= m.title %></header>
+            <img src="<%= m.poster %>" alt="<%= m.title %>">
+            <footer>Fecha de lanzamiento: <%= new Date(m.released).toLocaleDateString() %> </footer>
+        </article>
+        <% }); %>
+    </section>
+</body>
+
+</html>
