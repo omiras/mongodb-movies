@@ -11,6 +11,15 @@
 <body>
     <h1>Movies Database</h1>
     <!-- Usar sintaxis EJS para renderizar todas las películas que pasamos a la vista-->
+     <section class="container">
+        <form method="get" action="/">
+            <select name="type" id="type">
+                <option value="">Serie</option>
+                <option value="">Película</option>
+            </select>
+            <input type="submit" value="Buscar">
+        </form>
+     </section>
     <section class="container">
         <% movies.forEach(function(m) { %>
         <article>
