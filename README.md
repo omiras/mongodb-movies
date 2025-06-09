@@ -29,16 +29,15 @@ Por defecto vamos a ordenar las películas por fecha de lanzamiento en orden dec
 
 Modifica esta misma vista para añadir en la parte superior un formulario de búsqueda. Debemos poder buscar por los siguientes conceptos clave:
 
-1. Filtrar películas por género
-2. Buscar por palabra clave en el título
-3. Buscar por palabra clave en la descripción
-4. Buscar por tipo de filmación (campo _type_). Puede ser "movie" o "series"
-5. Buscar por año de lanzamiento. Debemos poder buscar entre dos años. Por ejemplo: todas las películas entre el 1990 y el 2000.
+1. Filtrar películas por género (Drama, Terror, etc)
+2. Buscar por tipo de filmación (campo _type_). Puede ser "movie" o "series"
+3. Buscar por año de lanzamiento. Debemos poder buscar entre dos años. Por ejemplo: todas las películas entre el 1990 y el 2000.
+4. Buscar por palabra clave en el título
+5. Buscar por palabra clave en la descripción
 6. Añade tu propio filtro. En general se podría realizar una bùsqueda por casi cualquier campo de los documentos que confirman la colecciones _movies_ de la base de datos _sample_mflix_
 
 
-Muestra siempre 10 películas como máximo. 
-
+Limita el número de películas a **10 películas como máximo**. 
 
 
 ## Iteración 2.5
@@ -84,6 +83,14 @@ Que recibe el identificador de una película de la base de datos y carga una vis
 ### Bonus Página Recomendacion
 
 Implementa una página de recomendaciones como se puede ver en la DEMO donde al hacer clic en uno de los iconos, obtengas una película aleatória del género solicitado.
+
+Es una arquitectura común el crear una ruta dinámica para este tipo de funcionalidades. Por ejemplo
+
+Obtener una película al azar de miedo: 
+`GET /movies/recommendation/terror`
+
+Obtener una película al azar del género comedia: 
+`GET /movies/recommendation/comedy`
 
 ### Bonus Iteración 2 
 
