@@ -21,9 +21,20 @@ app.get("/", async (req, res)=>{
     // Usar find para obtener 10 documentos de la colección y mostrarlos por consola
     const result = await movies.find().sort({ year: -1}).limit(10).toArray();
 
+
+    // Preparar datos a enviar a la vista
+    const resultView = result.map( m => {
+        console.log(m.released);
+        return {
+            title: m.title,
+            poster: m.poster,
+            released: m.released? m.released.toLocaleDateString() : "No disponemos de la fecha de lanzamiento"
+        }
+    })
+
     // Corregir Iteración 1 a las 21h
     res.render("index.ejs", {
-        movies: result
+        movies: resultView
     })
 });
 
