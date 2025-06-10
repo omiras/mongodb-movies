@@ -30,7 +30,7 @@ app.post("/movies/add-form", async (req, res)=> {
     await movies.insertOne(newMovie);
 
     // 3. Devolver algun mensaje al usuario indicando que hemos insertado la película en la base de datos
-    res.send('<p>Película insertada correctamente. Volver a <a href="/">HOME</a></p>')
+    res.send('<p>Película insertada correctamente. Volver a <a href="/">HOME</a></p>');
 
     // Coregir: 21.55
 });
