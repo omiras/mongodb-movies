@@ -9,25 +9,64 @@
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="/movies/add-form">Add New Movie</a></li>
+        </ul>
+    </nav>
     <h1>Movies Database</h1>
     <!-- Usar sintaxis EJS para renderizar todas las películas que pasamos a la vista-->
-     <section class="container">
+    <section class="container">
         <form method="get" action="/">
+            <label for="title">Título: </label>
+            <input type="text" name="title" id="title" placeholder="Shrek">
+            <label for="type">Tipo de film: </label>
             <select name="type" id="type">
-                <option value="">Serie</option>
-                <option value="">Película</option>
+                <option value="">---</option>
+                <option value="series">Serie</option>
+                <option value="movie">Película</option>
             </select>
+            <label for="genres">Género: </label>
+            <select name="genres" id="genres">
+                <option value="">---</option>
+
+                <option value="Action">Acción</option>
+                <option value="Adventure">Aventura</option>
+                <option value="Animation">Animación</option>
+                <option value="Biography">Biografía</option>
+                <option value="Comedy">Comedia</option>
+                <option value="Crime">Crimen</option>
+                <option value="Documentary">Documental</option>
+                <option value="Drama">Drama</option>
+                <option value="Family">Familiar</option>
+                <option value="Fantasy">Fantasía</option>
+                <option value="Film-Noir">Cine negro</option>
+                <option value="History">Historia</option>
+                <option value="Horror">Terror</option>
+                <option value="Music">Música</option>
+                <option value="Musical">Musical</option>
+                <option value="Mystery">Misterio</option>
+                <option value="News">Noticias</option>
+                <option value="Romance">Romance</option>
+                <option value="Sci-Fi">Ciencia ficción</option>
+                <option value="Short">Cortometraje</option>
+            </select>
+            <label for="year">Títulos a partir de este año: </label>
+            <input type="number" name="year" id="year" min="1914" max="2015">
             <input type="submit" value="Buscar">
         </form>
-     </section>
+    </section>
     <section class="container">
         <% movies.forEach(function(m) { %>
-        <article>
-            <header><%= m.title %></header>
-            <img src="<%= m.poster %>" alt="<%= m.title %>">
-            <footer>Fecha de lanzamiento: <%= new Date(m.released).toLocaleDateString() %> </footer>
-        </article>
-        <% }); %>
+            <article>
+                <header>
+                    <%= m.title %>
+                </header>
+                <img src="<%= m.poster %>" alt="<%= m.title %>">
+                <footer>Fecha de lanzamiento: <%= new Date(m.released).toLocaleDateString() %>
+                </footer>
+            </article>
+            <% }); %>
     </section>
 </body>
 
